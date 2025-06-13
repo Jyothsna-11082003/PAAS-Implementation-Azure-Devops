@@ -16,14 +16,8 @@ This project demonstrates deploying a .NET application on Azure App Service usin
 - State file storage using Azure Storage Account
 - Swagger UI endpoint verification
 
-## 📁 Folder Structure
-- `terraform/` – Contains all Terraform scripts
-- `azure-pipelines/` – Contains YAML or documentation for build and release
-- `docs/` – Step-by-step instructions with definitions
-- `screenshots/` – Project screenshots
-- `.NET-App/` – Your app code (optional if private)
-
 ## 🌐 Result
 > Visit: `https://<app-service-name>.azurewebsites.net/swagger` to verify deployment
+> If it shows swagger page,our deployment is successfull
 
 ---
