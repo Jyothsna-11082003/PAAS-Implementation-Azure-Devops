@@ -1,0 +1,52 @@
+Name: Release Pipeline - Infra & App Deployment
+
+📍 Artifacts:
+Select from Build pipeline: drop
+
+🧱 Stage 1: Terraform Infra Deployment
+Tasks:
+
+Terraform Installer
+
+Version: Latest
+
+Description: Install Terraform CLI
+
+Terraform Init
+
+Configuration directory: Where .tf files exist
+
+AzureRM Backend: Yes
+
+Storage account, container, key: Enter actual values
+
+Service Connection: Select your manual connection
+
+Terraform Validate
+
+Description: Validates all .tf files
+
+Terraform Plan
+
+Arguments: --out=plan.out
+
+Terraform Apply
+
+Arguments: plan.out --auto-approve
+
+⚠️ Optional: Add Terraform Destroy task after apply (keep disabled)
+
+🧱 Stage 2: Deploy .NET App to Azure App Service
+Tasks:
+
+Azure App Service Deploy
+
+App Type: Web App on Windows
+
+App Service Name: <your-app-service>
+
+Package or folder: Path to .dll or publish folder
+
+Subscription: Select manually or from service connection
+
+

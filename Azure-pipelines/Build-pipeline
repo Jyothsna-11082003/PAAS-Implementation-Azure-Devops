@@ -1,0 +1,39 @@
+Build Pipeline (CI)
+Name: Build Pipeline - .NET + Terraform Files
+
+Agent Pool: Azure Pipelines → windows-latest
+
+👇 Steps to Add:
+NuGet Tool Installer
+
+Description: Installs the latest version of NuGet.
+
+NuGet Restore
+
+Path to solution: **/*.sln
+
+Description: Restores dependencies for .NET app.
+
+.NET Core Build / Visual Studio Build
+
+Path to solution: **/*.sln
+
+Description: Builds the .NET project.
+
+Copy Files
+
+Source folder: $(Build.SourcesDirectory)
+
+Contents: **/*.tf
+
+Target folder: $(Build.ArtifactStagingDirectory)
+
+Description: Copies Terraform files for release.
+
+Publish Build Artifacts
+
+Path to publish: $(Build.ArtifactStagingDirectory)
+
+Artifact name: drop
+
+Description: Publishes .tf and app build artifacts to pipeline.
